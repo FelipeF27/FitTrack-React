@@ -1,18 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import Login from './src/pages/login';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { FitTrackProvider } from './src/contexts/FitTrackContext';
+import AppNavigation from './src/navigation/AppNavigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Login />
-    </View>
+    <SafeAreaProvider>
+      <FitTrackProvider>
+        <StatusBar style="dark" />
+        <AppNavigation />
+      </FitTrackProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
